@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoMath Arena - Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header with Game Info -->
+        <header class="game-header">
+            <div class="game-info">
+                <div id="gameMode">Single Player</div>
+                <div id="gameTimer">Time: 60s</div>
+                <div id="gameScore">Score: 0</div>
+            </div>
+            <button id="backToMenu" class="btn-secondary">← Back to Menu</button>
+        </header>
+
+        <!-- Multiplayer Players Display -->
+        <div id="multiplayerPlayers" class="players-container hidden">
+            <div class="players-list" id="playersList"></div>
+        </div>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <!-- Problem Display -->
+            <div class="problem-container">
+                <div class="problem-header">
+                    <h2>Problem <span id="problemNumber">1</span></h2>
+                    <div class="difficulty">Medium</div>
+                </div>
+                
+                <div class="numbers-display">
+                    <h3>Numbers:</h3>
+                    <div class="numbers-grid" id="numbersGrid"></div>
+                </div>
+                
+                <div class="operations-display">
+                    <h3>Operations:</h3>
+                    <div class="operations-list" id="operationsList"></div>
+                </div>
+                
+                <div class="steps-display">
+                    <h3>Steps to Follow:</h3>
+                    <ol class="steps-list" id="stepsList"></ol>
+                </div>
+            </div>
+
+            <!-- Calculator & Input -->
+            <div class="input-container">
+                <div class="calculator">
+                    <div class="calculator-display">
+                        <input type="text" id="calcDisplay" readonly>
+                    </div>
+                    <div class="calculator-buttons">
+                        <button class="calc-btn" data-value="7">7</button>
+                        <button class="calc-btn" data-value="8">8</button>
+                        <button class="calc-btn" data-value="9">9</button>
+                        <button class="calc-btn" data-operation="+">+</button>
+                        
+                        <button class="calc-btn" data-value="4">4</button>
+                        <button class="calc-btn" data-value="5">5</button>
+                        <button class="calc-btn" data-value="6">6</button>
+                        <button class="calc-btn" data-operation="-">-</button>
+                        
+                        <button class="calc-btn" data-value="1">1</button>
+                        <button class="calc-btn" data-value="2">2</button>
+                        <button class="calc-btn" data-value="3">3</button>
+                        <button class="calc-btn" data-operation="*">×</button>
+                        
+                        <button class="calc-btn" data-value="0">0</button>
+                        <button class="calc-btn" data-value=".">.</button>
+                        <button class="calc-btn" id="clearBtn">C</button>
+                        <button class="calc-btn" data-operation="/">÷</button>
+                        
+                        <button class="calc-btn" data-operation="^">^</button>
+                        <button class="calc-btn" data-operation="%">%</button>
+                        <button class="calc-btn" id="backspaceBtn">⌫</button>
+                        <button class="calc-btn" id="equalsBtn">=</button>
+                    </div>
+                </div>
+                
+                <div class="answer-input">
+                    <h3>Your Answer:</h3>
+                    <input type="number" id="answerInput" placeholder="Enter your answer..." step="0.01">
+                    <button id="submitAnswer" class="btn-primary">Submit Answer</button>
+                    <div class="hint">Round to 2 decimal places if needed</div>
+                </div>
+                
+                <div class="result-display hidden" id="resultDisplay">
+                    <h3 id="resultTitle"></h3>
+                    <p id="resultMessage"></p>
+                    <p id="resultPoints"></p>
+                    <button id="nextProblem" class="btn-primary hidden">Next Problem</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Game Stats -->
+        <footer class="game-footer">
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Correct:</span>
+                    <span id="correctCount" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Streak:</span>
+                    <span id="streakCount" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Multiplier:</span>
+                    <span id="multiplier" class="stat-value">1x</span>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Socket.io Client -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/multiplayer.js"></script>
+</body>
+</html>

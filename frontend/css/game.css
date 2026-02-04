@@ -1,0 +1,485 @@
+/* Game-specific styles */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-info {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.game-info > div {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#gameMode {
+    color: #00dbde;
+}
+
+#gameTimer {
+    color: #ffd700;
+    animation: pulse 1s infinite;
+}
+
+#gameScore {
+    color: #7bff7b;
+}
+
+/* Main Game Area */
+.game-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    flex: 1;
+}
+
+@media (max-width: 1024px) {
+    .game-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Problem Display */
+.problem-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 219, 222, 0.3);
+}
+
+.problem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.problem-header h2 {
+    font-size: 2rem;
+    color: #00dbde;
+}
+
+.difficulty {
+    padding: 6px 15px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Numbers Display */
+.numbers-display, .operations-display, .steps-display {
+    margin-bottom: 25px;
+}
+
+.numbers-display h3, .operations-display h3, .steps-display h3 {
+    color: #b8b8d1;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.numbers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.number-item {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.number-item:hover {
+    transform: scale(1.05);
+}
+
+/* Operations Display */
+.operations-list {
+    display: flex;
+    gap: 15px;
+}
+
+.operation-item {
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #fc00ff;
+    color: #fc00ff;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Steps Display */
+.steps-list {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+.steps-list li {
+    margin-bottom: 12px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #00dbde;
+    transition: all 0.3s ease;
+}
+
+.steps-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Calculator */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.calculator {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calculator-display {
+    margin-bottom: 15px;
+}
+
+#calcDisplay {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.8rem;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: monospace;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-btn {
+    padding: 15px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calc-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.calc-btn[data-operation] {
+    background: rgba(102, 126, 234, 0.3);
+    color: #667eea;
+    font-weight: bold;
+}
+
+#equalsBtn {
+    background: linear-gradient(135deg, #00dbde, #fc00ff);
+    color: white;
+    font-weight: bold;
+}
+
+#clearBtn {
+    background: rgba(255, 50, 50, 0.3);
+    color: #ff3232;
+}
+
+/* Answer Input */
+.answer-input {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.answer-input h3 {
+    color: #b8b8d1;
+    margin-bottom: 15px;
+}
+
+#answerInput {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5rem;
+    border: 2px solid #00dbde;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#answerInput:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 219, 222, 0.5);
+}
+
+#submitAnswer {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.3rem;
+}
+
+.hint {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Result Display */
+.result-display {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+#resultTitle {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#resultMessage {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #b8b8d1;
+}
+
+#resultPoints {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+/* Game Footer */
+.game-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-label {
+    color: #b8b8d1;
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00dbde;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Multiplayer Players */
+.players-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.players-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.player-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 180px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.player-card.current-player {
+    border-color: #00dbde;
+    box-shadow: 0 0 15px rgba(0, 219, 222, 0.5);
+}
+
+.player-card .name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.player-card .score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.player-card .status {
+    font-size: 0.9rem;
+    color: #b8b8d1;
+    margin-top: 5px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes correctAnswer {
+    0% { background-color: rgba(0, 255, 0, 0.1); }
+    50% { background-color: rgba(0, 255, 0, 0.3); }
+    100% { background-color: rgba(0, 255, 0, 0.1); }
+}
+
+@keyframes wrongAnswer {
+    0% { background-color: rgba(255, 0, 0, 0.1); }
+    50% { background-color: rgba(255, 0, 0, 0.3); }
+    100% { background-color: rgba(255, 0, 0, 0.1); }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.correct-animation {
+    animation: correctAnswer 0.5s ease;
+}
+
+.wrong-animation {
+    animation: wrongAnswer 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .number-item {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .operation-item {
+        padding: 8px 15px;
+        font-size: 1.2rem;
+    }
+    
+    .calculator-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .calc-btn {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

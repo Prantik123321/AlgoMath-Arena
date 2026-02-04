@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoMath Arena - Main Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 AlgoMath Arena</h1>
+            <p class="tagline">Think Algorithmically, Solve Mathematically!</p>
+        </header>
+        
+        <main class="menu">
+            <div class="player-info">
+                <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+                <div id="playerLevel">Level: Beginner</div>
+            </div>
+            
+            <div class="game-modes">
+                <button id="singlePlayerBtn" class="btn-primary">
+                    🧠 Single Player
+                    <span>Practice with AI problems</span>
+                </button>
+                <button id="multiplayerBtn" class="btn-primary">
+                    👥 Multiplayer (2-4)
+                    <span>Real-time competitive play</span>
+                </button>
+                <button id="leaderboardBtn" class="btn-secondary">
+                    🏆 Leaderboard
+                    <span>Top players & scores</span>
+                </button>
+                <button id="howToPlayBtn" class="btn-secondary">
+                    ❓ How to Play
+                    <span>Learn the rules</span>
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Problems Solved</h3>
+                    <p id="problemsSolved">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Best Time</h3>
+                    <p id="bestTime">--:--</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Win Rate</h3>
+                    <p id="winRate">0%</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made for math lovers aged 11-16 | Class 6–10</p>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

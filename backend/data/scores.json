@@ -1,0 +1,25 @@
+{
+  "players": [
+    {
+      "name": "MathWizard",
+      "score": 1250,
+      "problemsSolved": 42,
+      "bestTime": 87,
+      "lastPlayed": "2024-01-15T10:30:00Z"
+    },
+    {
+      "name": "NumberNinja",
+      "score": 980,
+      "problemsSolved": 35,
+      "bestTime": 92,
+      "lastPlayed": "2024-01-15T09:15:00Z"
+    },
+    {
+      "name": "AlgoPro",
+      "score": 750,
+      "problemsSolved": 28,
+      "bestTime": 105,
+      "lastPlayed": "2024-01-14T14:20:00Z"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: algo-math-arena
+    env: node
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    autoDeploy: true
+    healthCheckPath: /
+    domains:
+      - algomath-arena.onrender.com
